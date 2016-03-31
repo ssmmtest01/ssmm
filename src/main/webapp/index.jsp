@@ -1,11 +1,6 @@
 <html>
 <body>
 
-	<%
-		String str = (String)request.getAttribute("param");
-	%>
-	
-	<%=str %>
-	${requestScope.param }
+	hello 大  利文
 </body>
 </html>
