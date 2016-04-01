@@ -17,12 +17,13 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/user")
 public class UserController {
 	
+	
 	@RequestMapping(value="" ,method = {RequestMethod.GET })
 	public String index(HttpServletRequest request ,HttpServletResponse response){
 //		ModelAndView mav = new ModelAndView("index");
 //		Map<String ,Object> map = new HashMap<String, Object>();
 //		map.put("param", "111");
-//		mav.addAllObjects(map);\
+//		mav.addAllObjects(map);
 		request.setAttribute("param", "zeng");
 		return "index";
 	}
