@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="s.dao.OnlineMapper" >
+  <resultMap id="BaseResultMap" type="s.model.Online" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="longindatetime" property="longindatetime" jdbcType="DATE" />
+    <result column="longinname" property="longinname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, ip, longindatetime, longinname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tonline
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tonline
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="s.model.Online" >
+    insert into tonline (id, ip, longindatetime, 
+      longinname)
+    values (#{id,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{longindatetime,jdbcType=DATE}, 
+      #{longinname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="s.model.Online" >
+    insert into tonline
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="longindatetime != null" >
+        longindatetime,
+      </if>
+      <if test="longinname != null" >
+        longinname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="longindatetime != null" >
+        #{longindatetime,jdbcType=DATE},
+      </if>
+      <if test="longinname != null" >
+        #{longinname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="s.model.Online" >
+    update tonline
+    <set >
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="longindatetime != null" >
+        longindatetime = #{longindatetime,jdbcType=DATE},
+      </if>
+      <if test="longinname != null" >
+        longinname = #{longinname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="s.model.Online" >
+    update tonline
+    set ip = #{ip,jdbcType=VARCHAR},
+      longindatetime = #{longindatetime,jdbcType=DATE},
+      longinname = #{longinname,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
