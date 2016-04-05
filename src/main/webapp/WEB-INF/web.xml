@@ -2,6 +2,7 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
+
 	<filter>
 		<description>字符集过滤器</description>
 		<filter-name>encodingFilter</filter-name>
@@ -11,12 +12,17 @@
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
 		</init-param>
+		<init-param>
+			<description>强制response.setCharacterEncoding的编码和request.setCharacterEncoding的编码相同</description>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<!-- 配置springMVC的 DispatcherServlet -->
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
