@@ -6,6 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>测试转发</title>
 </head>
-<body>测试转发forward
+<body>测试转发forward ${name }:${age }
 </body>
 </html>
