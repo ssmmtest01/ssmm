@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hand.ssm.dao.userMapper">
+	<resultMap id="BaseResultMap" type="com.hand.ssm.model.user">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="getByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select * from user where id = #{id,jdbcType=INTEGER}
+	</select>
+	<select id="selectUserRole" parameterType="java.lang.Integer"
+		resultType="com.hand.ssm.model.role_user">
+		select id,role_id,user_id from role_user
+		where id=#{id,jdbcType=INTEGER}
+	</select>
+	<resultMap id="userResultMap" type="com.hand.ssm.model.user" extends="BaseResultMap">
+		<collection property="role_users" column="id" select="selectUserRole"
+			javaType="list"></collection>
+	</resultMap>
+	<select id="getAll" resultMap="userResultMap">
+		select id,name from user
+	</select>
+	
+	<resultMap id="userResultMap2" type="com.hand.ssm.model.user" extends="BaseResultMap">
+		<collection property="role_users"  javaType="list" ofType="com.hand.ssm.model.role_user">
+		<id property="id" column="ru"/>
+		<result column="r" property="role_id"/>
+		<result column="u" property="user_id"/>
+		</collection>
+	</resultMap>
+	<select id="getAll2" resultMap="userResultMap2">
+		select user.id,user.name, 
+		role_user.id ru,
+		role_user.role_id r,
+		role_user.user_id u
+		from user
+		JOIN role_user on user.id=role_user.user_id
+	</select>
+	
+	<resultMap id="userResultMap3" type="com.hand.ssm.model.user" extends="BaseResultMap">
+		<collection property="role_users"  javaType="list" ofType="com.hand.ssm.model.role_user">
+		<id property="id" column="ru"/>
+		<result column="r" property="role_id"/>
+		<result column="u" property="user_id"/>
+		<association property="role" javaType="com.hand.ssm.model.role">
+		 <id property="id" column="rid"/>
+		 <result property="name" column="rname"/>
+		</association>
+		</collection>
+	</resultMap>
+	<select id="getAll3" resultMap="userResultMap3">
+		select user.id,user.name, 
+		role_user.id ru,
+		role_user.role_id r,
+		role_user.user_id u,
+		role.id rid, 
+		role.name rname
+		from user
+		JOIN role_user on user.id=role_user.user_id
+		JOIN role on role_user.role_id=role.id
+	</select>
+	<delete id="deleteUser" parameterType="java.lang.Integer">
+	delete from user where id=#{id,jdbcType=INTEGER}
+	</delete>
+	
+	<update id="updateUser" parameterType="com.hand.ssm.model.user">
+	update user 
+	set name=#{name}
+	where id=#{id}
+	</update>
+	
+	<insert id="addUser" parameterType="com.hand.ssm.model.user">
+	insert into user(id,name) values(
+	#{id},#{name}
+	)
+	</insert>
+</mapper>  

@@ -1,102 +1,128 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.hand</groupId>
-  <artifactId>ssmm</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>ssmm Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  
-  <properties>
-  		<!-- Application Setting -->
-	<webapp.name>HAND HDC</webapp.name>
-	<company.name>Hand-China</company.name>
-	<company.url>http://www.hand-china.com/</company.url>
-	<copyright.year>2016</copyright.year>
-	<application.encoding>UTF-8</application.encoding>
-	<application.locale>zh_CN</application.locale>
-	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  
-  	<!--  -->
-  	<jsp.version>2.1</jsp.version>
-	<servlet.version>3.1.0</servlet.version>
-	<spring.version>4.0.3.RELEASE</spring.version>
-	<jackson.version>1.8.1</jackson.version>
-	<commons.fileupload.version>1.3</commons.fileupload.version>
-	<commons.io.version>2.4</commons.io.version>
-  </properties>
-  
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    
-    <dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>javax.servlet-api</artifactId>
-		<version>${servlet.version}</version>
-		<scope>provided</scope>
-	</dependency>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hand</groupId>
+	<artifactId>testMybatis</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>testMybatis Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
 		<dependency>
-		<groupId>javax.servlet.jsp</groupId>
-		<artifactId>jsp-api</artifactId>
-		<version>${jsp.version}</version>
-		<scope>provided</scope>
-	</dependency>
-	
-	 <dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId>
-		<version>${spring.version}</version>
-	</dependency>
-	
-	
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-core-lgpl</artifactId>
-			<version>${jackson.version}</version>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.18</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.9</version>
+		</dependency>
+
+		<!-- Spring 配置 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>3.2.9.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-lgpl</artifactId>
-			<version>${jackson.version}</version>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
-			<version>${commons.fileupload.version}</version>
+			<version>1.3.1</version>
 		</dependency>
-    
-  </dependencies>
-  <build>
-  
-  	<plugins>
-  		<plugin>
-  			<groupId>org.apache.tomcat.maven</groupId>
-    		<artifactId>tomcat7-maven-plugin</artifactId>
-    		<version>2.2</version>
-  			<configuration>
-  				<uriEncoding></uriEncoding>
-  				<path>/</path>
-  			</configuration>
-  		</plugin>
-  		
-  		<plugin>
-  			<groupId>org.apache.maven.plugins</groupId>
-    		<artifactId>maven-compiler-plugin</artifactId>
-            <version>3.5.1</version>
-  			<configuration>
-  				<encoding>UTF-8</encoding>
-  			</configuration>
-  		</plugin>
-  		
-  	</plugins>
-  
-    <finalName>ssmm</finalName>
-  </build>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.8</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0-alpha-1</version>
+		</dependency>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>testMybatis</finalName>
+	</build>
 </project>

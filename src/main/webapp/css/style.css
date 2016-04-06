@@ -1,0 +1,60 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*tail*/
+.tail {
+	width: 485px;
+	position: absolute;
+	top: 10%;
+	left: 30%;
+	background: #fcfdfd;
+	box-shadow: 1px 8px 10px 1px #9b9b9b;
+	border-radius: 1px;
+	behavior: url(js/pie.htc);
+	display: none;
+	z-index: 111111;
+}
+
+.tailinfo {
+	padding-top: 30px;
+	margin-right: 10%;
+	margin-left: 10%;
+}
+
+.tailbtn {
+	margin-top: 25px;
+	margin-left: 150px;
+	margin-bottom: 30px
+}
+
+.tablelist {
+	border: solid 1px #cbcbcb;
+	width: 100%;
+	clear: both;
+}
+
+.tablelist th {
+	background: url(../image/th.gif) repeat-x;
+	height: 34px;
+	line-height: 34px;
+	border-bottom: solid 1px #b6cad2;
+	text-indent: 11px;
+	text-align: left;
+}
+
+.tablelist td {
+	line-height: 35px;
+	text-indent: 11px;
+	border-right: dotted 1px #c7c7c7;
+}
+
+ 
+
+.tablelist tbody tr.odd {
+	background: #e5e5e5;
+}
+
+.tablelist tbody tr:hover {
+	background: #e5ebee;
+}
+
+
