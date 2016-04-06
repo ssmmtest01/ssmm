@@ -1,12 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.hand</groupId>
   <artifactId>ssmm</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>ssmm Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+	<name>ssmm Maven Webapp</name>
+ 	<url>http://maven.apache.org</url>
   
   <properties>
   		<!-- Application Setting -->
@@ -35,6 +35,7 @@
       <scope>test</scope>
     </dependency>
     
+     <!--servlet依赖  -->
     <dependency>
 		<groupId>javax.servlet</groupId>
 		<artifactId>javax.servlet-api</artifactId>
@@ -47,7 +48,7 @@
 		<version>${jsp.version}</version>
 		<scope>provided</scope>
 	</dependency>
-	
+	 <!--spring-mvc依赖-->
 	 <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-webmvc</artifactId>
@@ -55,37 +56,50 @@
 	</dependency>
 	
 	
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-core-lgpl</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-lgpl</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-core-lgpl</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-lgpl</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>
 		
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>${commons.fileupload.version}</version>
-		</dependency>
-    
+	<dependency>
+		<groupId>commons-fileupload</groupId>
+		<artifactId>commons-fileupload</artifactId>
+		<version>${commons.fileupload.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.eclipse.jetty</groupId>
+		<artifactId>apache-jstl</artifactId>
+		<version>9.3.8.v20160314</version>
+	</dependency>
   </dependencies>
   <build>
   
   	<plugins>
+  		<!-- 
   		<plugin>
   			<groupId>org.apache.tomcat.maven</groupId>
     		<artifactId>tomcat7-maven-plugin</artifactId>
     		<version>2.2</version>
+    		<executions>
+    		<execution>
+    		<phase>package</phase>
+    		<goals><goal>run</goal></goals>
+    		</execution>
+    		</executions>
   			<configuration>
   				<uriEncoding></uriEncoding>
-  				<path>/</path>
+  				<path>/</path> 
   			</configuration>
   		</plugin>
-  		
+  		 -->
+  		 
   		<plugin>
   			<groupId>org.apache.maven.plugins</groupId>
     		<artifactId>maven-compiler-plugin</artifactId>
