@@ -23,9 +23,10 @@ public class UserController {
 //		Map<String ,Object> map = new HashMap<String, Object>();
 //		map.put("param", "111");
 //		mav.addAllObjects(map);\
-		request.setAttribute("param", "zeng");
+		 response.setCharacterEncoding("UTF-8");
+		 request.setAttribute("param", "你好");
+		 String str = (String) request.getAttribute("param");
+		 System.out.println(str);
 		return "index";
 	}
-	
-	
 }

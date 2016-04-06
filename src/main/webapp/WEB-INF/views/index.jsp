@@ -1,6 +1,5 @@
 <html>
 <body>
-
 	<%
 		String str = (String)request.getAttribute("param");
 	%>
