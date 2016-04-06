@@ -1,11 +1,8 @@
 <html>
+<head>
+<title></title>
+</head>
 <body>
-
-	<%
-		String str = (String)request.getAttribute("param");
-	%>
-	
-	<%=str %>
-	${requestScope.param }
+welcome ${requestScope.param }
 </body>
 </html>
