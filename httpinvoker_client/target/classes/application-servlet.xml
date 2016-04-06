@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+    <bean id="httpTestService"
+    class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl">
+            <value>http://localhost:8080/httpinvoker_server/test</value>
+        </property>
+        <property name="serviceInterface">
+            <value>org.felix.service.UserService</value>
+        </property>
+    </bean>
+</beans>
