@@ -4,7 +4,6 @@
 	version="3.0">
 
 	<display-name>Hand SSM</display-name>
-	
 	<filter>
 		<description>字符集过滤器</description>
 		<filter-name>encodingFilter</filter-name>
