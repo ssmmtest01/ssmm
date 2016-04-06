@@ -1,0 +1,3 @@
+org\felix\service\UserService.class
+org\felix\model\User.class
+org\felix\service\impl\UserServiceImpl.class
