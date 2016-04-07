@@ -51,5 +51,9 @@ public class UserController {
 	}
 	
 	//参数绑定
-
+	@RequestMapping("/show4")
+	public String show(@RequestHeader("Host")String host,HttpServletRequest request){
+		request.setAttribute("host", host);
+		return "show";
+	}
 }
