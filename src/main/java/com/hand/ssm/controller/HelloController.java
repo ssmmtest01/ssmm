@@ -14,20 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/hello")
+public class HelloController {
 	
+	/* 返回视图模型 */
 	@RequestMapping(value="" ,method = {RequestMethod.GET })
 	public String index(HttpServletRequest request ,HttpServletResponse response){
-//		ModelAndView mav = new ModelAndView("index");
-//		Map<String ,Object> map = new HashMap<String, Object>();
-//		map.put("param", "111");
-//		mav.addAllObjects(map);\
 		request.setAttribute("param", "Hello World");
-		return "index";
-	}
-	
-	
-	
-	
+		return "hello";
+	}	
 }
+

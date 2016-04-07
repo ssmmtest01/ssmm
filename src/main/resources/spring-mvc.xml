@@ -74,9 +74,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<mvc:annotation-driven />
 	
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/" p:suffix=".jsp" />
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/" p:suffix=".jsp" />
 
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding">
 			<value>UTF-8</value>
 		</property>
@@ -86,6 +89,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 		<property name="maxInMemorySize">
 			<value>4096</value>
 		</property>
-	</bean>
-
+	</bean> 
+	
 </beans>

@@ -5,7 +5,7 @@
 		String str = (String)request.getAttribute("param");
 	%>
 	
-	<%=str %>
+	<%=str %><br/>
 	${requestScope.param }
 </body>
 </html>
