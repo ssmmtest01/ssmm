@@ -7,7 +7,7 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
-	<context:component-scan base-package="com.hand.ssm.controller" />
+	<context:component-scan base-package="sy.controller" />
 	
 	
 	
@@ -16,7 +16,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
     <bean id="jacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
            <!--  <property name="objectMapper" ref="customObjectMapper"></property>   -->
     </bean>
-    
+    <!-- <mvc:annotation-driven></mvc:annotation-driven> -->
     <bean id="resourceHttpMessageConverter" class="org.springframework.http.converter.ResourceHttpMessageConverter">
     	<property name="supportedMediaTypes">
 			<list>
@@ -24,6 +24,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 				<value>application/x-excel</value>
 				<value>application/x-excel</value>
 				<value>application/pdf</value>
+				
 			</list>
 		</property>
     </bean>
@@ -74,8 +75,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<mvc:annotation-driven />
 	
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/" p:suffix=".jsp" />
-
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/myjsp/"/> <!--前缀-->
+        <property name="suffix" value=".jsp"/><!--后缀-->
+    </bean>    
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding">
 			<value>UTF-8</value>

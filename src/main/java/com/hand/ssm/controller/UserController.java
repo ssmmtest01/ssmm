@@ -16,15 +16,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	
+	//我把这个注释了，不在控制器中，拦截器拦截不到
 	@RequestMapping(value="" ,method = {RequestMethod.GET })
 	public String index(HttpServletRequest request ,HttpServletResponse response){
 //		ModelAndView mav = new ModelAndView("index");
 //		Map<String ,Object> map = new HashMap<String, Object>();
 //		map.put("param", "111");
 //		mav.addAllObjects(map);\
+		System.out.println("bb");
 		request.setAttribute("param", "zeng");
-		return "index";
+		return "index2";
 	}
 	
 	
