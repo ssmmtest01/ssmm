@@ -48,7 +48,6 @@ public class UserController {
 	@RequestMapping("/show3")
 	public String mav(){
 		return "redirect:/test/show1";
-		
 	}
 	
 	//参数绑定
