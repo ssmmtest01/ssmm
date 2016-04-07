@@ -12,7 +12,8 @@
 	%>
 	<h2>dec9810 </h2>
 	${requestScope.param }<br/>
-	${message }
+	${message }<br/>
+	
 
 
 </body>
