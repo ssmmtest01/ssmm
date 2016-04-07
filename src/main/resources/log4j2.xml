@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30">
+	<Properties>
+			<Property name="logdir">\usr\app\temp\ssmmlog</Property>
+	    	<!-- <Property name="logdir">/logs</Property>  -->
+	</Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		
+		<RollingFile name="ssmmLog" fileName="${logdir}/ssmm.log"
+                     filePattern="${logdir}/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="300MB"/>
+        </RollingFile>
+        
+        <RollingFile name="ssmmOrmLog" fileName="${logdir}/ssmm-orm.log"
+                     filePattern="${logdir}/$${date:yyyy-MM}/ssmm-orm-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="300MB"/>
+        </RollingFile>
+        
+        <RollingFile name="ssmmWsLog" fileName="${logdir}/ssmm-ws.log"
+                     filePattern="${logdir}/$${date:yyyy-MM}/ssmm-ws-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="300MB"/>
+        </RollingFile>
+        
+        <RollingFile name="ssmmWebLog" fileName="${logdir}/ssmm-web.log"
+                     filePattern="${logdir}/$${date:yyyy-MM}/ssmm-web-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="300MB"/>
+        </RollingFile>
+        
+        <RollingFile name="ssmmSecurityLog" fileName="${logdir}/ssmm-security.log"
+                     filePattern="${logdir}/$${date:yyyy-MM}/ssmm-sercurity-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="300MB"/>
+        </RollingFile>
+        
+        <RollingFile name="ssmmDeleteFileLog" fileName="${logdir}/ssmm-DeleteFile.log"
+                     filePattern="${logdir}/$${date:yyyy-MM}/ssmm-sercurity-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="300MB"/>
+        </RollingFile>
+	</Appenders>
+	<Loggers>
+
+		<!-- 应用程序日志 -->
+		<logger name="com.hand.ssm" level="DEBUG">
+			<AppenderRef ref="ssmmLog" />
+		</logger>
+		<logger name="org.springframework" level="WARN">
+			<AppenderRef ref="ssmmLog" />
+		</logger>
+		
+		<!-- ORM 模块日志 -->
+
+		<logger name="org.springframework.orm" level="INFO">
+			<AppenderRef ref="ssmmOrmLog" />
+		</logger>
+		
+		<!-- Web模块日志 -->
+		<logger name="org.springframework.web" level="INFO">
+			<AppenderRef ref="ssmmWebLog" />
+		</logger>
+		
+		<!-- 其他 -->
+		<logger name="org.aspectj" level="ERROR">
+			<AppenderRef ref="ssmmLog" />
+		</logger>
+		<logger name="org.apache.commons.beanutils" level="ERROR">
+			<AppenderRef ref="ssmmLog" />
+		</logger>
+		
+		<Root level="WARN">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>
