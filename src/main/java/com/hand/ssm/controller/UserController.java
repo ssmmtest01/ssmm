@@ -56,4 +56,23 @@ public class UserController {
 		request.setAttribute("host", host);
 		return "show";
 	}
+	/*
+	 * 用户登录 POST方法登录
+	 */	
+	@RequestMapping(value="/check" ,method=RequestMethod.POST)
+	public ModelAndView login( HttpServletRequest request,String username,int password){
+		//验证传递的参数
+	if(username=="baiyu"&&password==1234){
+			System.out.println(username+" "+password);
+			request.setAttribute("username", username);
+			request.setAttribute("password", password);
+			return new ModelAndView("/succ");
+		}
+		System.out.println(username+" "+password);
+		return  new ModelAndView("/failed");
+		//传递参数
+/*		request.setAttribute("username", username);
+		request.setAttribute("age", age);
+		return new ModelAndView("/succ");*/
+	}
 }
