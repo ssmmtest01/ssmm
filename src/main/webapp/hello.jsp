@@ -12,7 +12,8 @@
 	%>
 	<h2>dec9810 </h2>
 	${requestScope.param }<br/>
-	<a href="ResponseDemo">请求重定向</a>......<br/>
-	<a href="RedirectSerlet">请求转发</a>......<br/>
+	${message }
+
+
 </body>
 </html>
