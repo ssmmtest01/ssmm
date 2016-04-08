@@ -9,4 +9,5 @@
                      
          <context:component-scan base-package="sy.serviceimpl"/> 
          <context:property-placeholder location="classpath:config.properties" />
+         <!-- <bean name="user" class="sy.model.User"></bean> -->
     </beans> 

@@ -59,6 +59,7 @@
 	<welcome-file-list>
 		<welcome-file>/views/Index.jsp</welcome-file>
 		<welcome-file>/index.jsp</welcome-file>
+		<welcome-file>/upload.jsp</welcome-file>
 	</welcome-file-list>
 	
 	<session-config>
