@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
 http://www.springframework.org/schema/context 
 http://www.springframework.org/schema/context/spring-context-3.0.xsd 
@@ -8,15 +13,22 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
 	<context:component-scan base-package="sy.controller" />
-	
-	
+	    <mvc:interceptors>  
+        <!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->  
+        <bean class="sy.interceptor.SpringMVCInterceptor"/>  
+        <mvc:interceptor>  
+            <mvc:mapping path="/user2/*"/>  
+            <!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->  
+            <bean class="sy.interceptor.MyInterceptor"/>  
+        </mvc:interceptor>  
+    </mvc:interceptors>  
 	
 	<!-- ********************************************************** -->
 	<!-- <bean id="customObjectMapper" class="hand.career.basic.CustomObjectMapper"></bean> -->
     <bean id="jacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
            <!--  <property name="objectMapper" ref="customObjectMapper"></property>   -->
     </bean>
-    <!-- <mvc:annotation-driven></mvc:annotation-driven> -->
+    <mvc:annotation-driven></mvc:annotation-driven>
     <bean id="resourceHttpMessageConverter" class="org.springframework.http.converter.ResourceHttpMessageConverter">
     	<property name="supportedMediaTypes">
 			<list>
