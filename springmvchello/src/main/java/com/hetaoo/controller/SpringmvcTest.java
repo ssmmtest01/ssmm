@@ -1,11 +1,8 @@
 package com.hetaoo.controller;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
-
-import javax.xml.crypto.Data;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hetaoo.pojo.User;
@@ -25,6 +21,29 @@ import com.hetaoo.pojo.User;
 public class SpringmvcTest {
 	private static  final String SUCCESS = "success";
 	
+	@RequestMapping("/testRedirect")
+	public String testRedirect(){
+		System.out.println("test redirect");
+		return "redirect:/index.jsp";
+	}
+	
+	@RequestMapping("/testView")
+	public String testView(){
+		System.out.println("test view");
+		return "helloView";
+	}
+	
+	@RequestMapping("/testViewAndViewResolvel")
+	public String testViewAndViewResolvel(){
+		System.out.println("testViewAndViewResolvel");
+		return SUCCESS;
+	}
+	
+	/**
+	 * 每次目标方法调用之前都会调用@modelattribute注解方法
+	 * @param id
+	 * @param map
+	 */
 	@ModelAttribute
 	public void getUser(@RequestParam(value="id",required=false)Integer id,Map<String,Object>map){
 		if(id != null){
@@ -34,6 +53,14 @@ public class SpringmvcTest {
 		}
 	}
 	
+	/**
+	 * 运行流程
+	 * 1.执行@modelattribute注解修饰的方法:从数据库中取出对象，把对象加到map中，键为user
+	 * 2.SpringMVC 从map中取出User对象，并把表单的参数赋给user对象的对应属性
+	 * 3.springmvc 把上述对象传入目标方法的参数
+	 * @param user
+	 * @return
+	 */
 	@RequestMapping("/testModelAttribute")
 	public String testModelAttribute(User user){
 		System.out.println("User被修改为："+ user);

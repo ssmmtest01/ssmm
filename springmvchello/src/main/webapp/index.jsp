@@ -72,4 +72,14 @@
 	<input type="text" name="age" value="18">
 	<input type="submit" value="submit">
 </form>
+
+<h2>test ViewAndViewResolvel</h2>
+<a href="testViewAndViewResolvel">test ViewAndViewResolvel</a>
+
+<h2>test helloView</h2>
+<a href="testView">test helloView</a>
+
+<h2>test redirect</h2>
+<a href="testRedirect" >test redirect</a>
+<body>
 </html>

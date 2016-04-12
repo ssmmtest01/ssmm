@@ -61,4 +61,22 @@
 
 <h2>testModelAndView</h2>
 <a href="testModelAndView">test ModelAndView</a>
+<h2>test MapAndModel</h2>
+<a href="testMapAndModel">test MapAndModel</a>
+<h2>test SessionAttributes</h2>
+<a href="testSessionAttributes">test SessionAttributes</a>
+<h2>test ModelAttribute</h2>
+<form action="testModelAttribute" method="post">	
+	<input type="hidden" name="id" value="1">
+	<input type="text" name="username" value="hetaoo">
+	<input type="text" name="age" value="18">
+	<input type="submit" value="submit">
+</form>
+
+<h2>test ViewAndViewResolvel</h2>
+<a href="testViewAndViewResolvel">test ViewAndViewResolvel</a>
+
+<h2>test helloView</h2>
+<a href="testView">test helloView</a>
+<body>
 </html>
