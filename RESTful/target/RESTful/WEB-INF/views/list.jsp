@@ -7,8 +7,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".delete").click(function(){
+			var href = $(this).attr("href");
+			$("form").attr("action", href).submit();			
+			return false;
+		});
+	})
+</script>
 </head>
 <body>
+
+	<form action="" method="POST">
+		<input type="hidden" name="_method" value="DELETE"/>
+	</form>
+	
 	<c:if test="${empty requestScope.employees }">
 		没有任何员工信息.
 	</c:if>
@@ -23,18 +38,6 @@
 				<th>edit</th>
 				<th>delete</th>
 			</tr>
-			<!--  
-			<c:forEach items="${requestScope.employees }" var="emp">
-				<tr>
-					<td>${emp.id }</td>
-					<td>${emp.lastname }</td>
-					<td>${emp.email }</td>
-					<td>${emp.gender }</td>
-					<td>${emp.department }</td>
-					<td><a href="">edit</a></td>
-					<td><a href="">delete</a></td>
-				</tr>
-			</c:forEach>-->
 			<c:forEach items="${requestScope.employees }" var="emp">
 				<tr>
 					<td>${emp.id }</td>
@@ -49,5 +52,8 @@
 			
 		</table>
 	</c:if>
+	
+	<br><br>
+	<a href="emp">save emp</a>
 </body>
 </html>
